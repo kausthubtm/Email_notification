@@ -11,8 +11,8 @@
     <title>Home</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'mysite:home' %}" style="padding-left:250px;"><img src="{% static 'images/logo2.png' %}" height="50px" width="100px"></a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'mysite:home' %}" style="padding-left:250px;"><img src="{% static 'images/logo4.png' %}" height="50px" width="100px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -87,18 +87,24 @@
                 </select>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputType">Type</label>
+                <label for="inputType">Interest</label>
                 <select id="inputType" class="form-control" name="inputType" required>
                     <option selected>Choose...</option>
-                    <option>Electrician</option>
-                    <option>Plumber</option>
-                    <option>Painter</option>
-                    <option>Carpenter</option>
+                    <option>Sports</option>
+                    <option>Food</option>
+                    <option>Music/Dance</option>
+                    <option>Science</option>
                 </select>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputexperience">Experience</label>
-                <input type="text" class="form-control" id="inputexperience" placeholder="In years" name="inputexperience" required>
+                <label for="inputexperience">Age group</label>
+                <select id="inputexperience" class="form-control" name="inputexperience" required>
+                    <option selected>Choose...</option>
+                    <option>0-15</option>
+                    <option>15-25</option>
+                    <option>25-40</option>
+                    <option>40+</option>
+                </select>
             </div>
             <div class="form-group">
                 <div class="form-check">
@@ -108,8 +114,8 @@
                     </label>
                 </div>
              </div>
-            <button type="submit" class="btn btn-primary">Apply</button>
         </div>
+        <center><button type="submit" class="btn btn-primary">Submit</button></center>
       </form>
     </div>
     {% endif %}

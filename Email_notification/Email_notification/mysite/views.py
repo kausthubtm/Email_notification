@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, logout, login
 from django.contrib import messages
 from .models import Application
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 
 # registration things
 
@@ -17,7 +18,7 @@ def loginpage(request):
 
         if user is not None:
             login(request, user)
-            if user.is_superuser:
+            if user.is_superuser or user.is_staff:
                 return redirect('mysite:admin')
             else:
                 return redirect('mysite:home')
@@ -51,6 +52,30 @@ def admin(request):
 
 
 @login_required(login_url='mysite:login')
+def send_email(request):
+
+    city = request.POST["inputCity"]
+    interest = request.POST["inputInterest"]
+    age_group = request.POST["inputAgegroup"]
+    message = request.POST["message"]
+
+    all_applications = Application.objects.all()
+
+    for application in all_applications:
+        if application.city == city or city == 'All':
+            if application.interest == interest or interest == 'All':
+                if application.age_group == age_group or age_group == 'All':
+                    send_mail(
+                        'Notifier: Your first notification, Mr/Mrs ' + application.first_name,
+                        message,
+                        application.email,
+                        ['emailnotifierwebclub@gmail.com', application.email],
+                    )
+
+    return render(request, 'mysite/admin.html', {'city': city, 'interest': interest, 'age_group': age_group})
+
+
+@login_required(login_url='mysite:login')
 def home(request):
     return render(request, 'mysite/home.html')
 
@@ -69,12 +94,12 @@ def add_application_form_submission(request):
     phone_no = request.POST["inputPhoneno"]
     address = request.POST["inputAddress"]
     city = request.POST["inputCity"]
-    job_type = request.POST["inputType"]
-    job_experience = request.POST["inputexperience"]
+    interest = request.POST["inputType"]
+    age_group = request.POST["inputexperience"]
 
     # adding application to database
     application = Application(first_name=first_name, second_name=second_name, email=email, phone_no=phone_no,
-                              address=address, city=city, job_type=job_type, job_experience=job_experience)
+                              address=address, city=city, interest=interest, age_group=age_group)
     application.save()
 
     return render(request, 'mysite/Forms.html', {'first_name': first_name, 'second_name': second_name})

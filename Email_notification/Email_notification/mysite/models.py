@@ -8,5 +8,5 @@ class Application(models.Model):
     phone_no = models.CharField(max_length=20)
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=20)
-    job_type = models.CharField(max_length=20)
-    job_experience = models.CharField(max_length=5)
+    interest = models.CharField(max_length=20)
+    age_group = models.CharField(max_length=5)

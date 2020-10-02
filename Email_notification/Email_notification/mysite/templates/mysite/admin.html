@@ -9,18 +9,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Admin</title>
+
+
+
+    <style>
+        th, td {
+          border: 1px solid black;
+        }
+    </style>
+
+
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'mysite:home' %}" style="padding-left:250px;"><img src="{% static 'images/logo2.png' %}" height="50px" width="100px"></a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'mysite:home' %}" style="padding-left:220px;"><img src="{% static 'images/logo4.png' %}" height="50px" width="100px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item" >
-                    <a class="nav-link active" href="{% url 'mysite:admin' %}" style="padding-left:200px;">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="{% url 'mysite:admin' %}" style="padding-left:230px;">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="#" style="padding-left:50px;">User: {{request.user}}<span class="sr-only">(current)</span></a>
@@ -29,12 +39,106 @@
                     <a class="nav-link" href="{% url 'mysite:logout' %}" style="padding-left:50px;">Logout<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-            <span class="navbar-text">
+            <span class="navbar-text" style="padding-right:50px;">
+                <h3><i>Admin page</i></h3>
             </span>
         </div>
     </nav>
     <br><br>
-    <center><h1><u>Admin page</u></h1></center>
+
+    <br>
+
+    {% if city %}
+
+    <h2 style="text-align:center;">Email notifications has been sent successfully !! </h2>
+    <h6 style="text-align:center;"><i>( This action was done by :<b> {{user}}</b> )</i></h6>
+    <br><br><br><br>
+    <h5 style="text-align:center;">The criteria considered were : </h5>
+    <div class="d-flex justify-content-center">
+        <table style="width:60%;text-align:center;background-color:lightblue;">
+          <tr>
+            <th>Criteria</th>
+            <th>Option selected</th>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>{{city}}</td>
+          </tr>
+          <tr>
+            <td>Interest</td>
+            <td>{{interest}}</td>
+          </tr>
+          <tr>
+            <td>Age group</td>
+            <td>{{age_group}}</td>
+          </tr>
+        </table>
+    </div>
+    <br><br>
+    <center>
+        <a href="{% url 'mysite:admin' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Send more</a>
+    </center>
+
+    {% else %}
+
+    <center>
+    <div style="width:800px">
+    <div class="card bg-dark text-white">
+        <img class="card-img" src="{% static 'images/background2.webp' %}" alt="Card image" width="100%" height="670px">
+            <div class="card-img-overlay" style="background-color:black;"><br><br>
+                <h2 style="text-shadow: 2px 2px #000;font-weight: 700; color: darkcyan;text-align:center;">EMAIL FORM</h2>
+                <p>* Select the criteria based on which the email notifications will be targeted. </p><br><br>
+                <div class="container" style="background-color:black;color:white;">
+                    <br>
+                    <form method="POST" action="{% url 'mysite:send_email' %}">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="inputCity">City : </label>
+                                <select class="form-control" id="inputCity" name="inputCity" required>
+                                    <option selected>Bangalore</option>
+                                    <option>Chennai</option>
+                                    <option>Mumbai</option>
+                                    <option>Delhi</option>
+                                    <option>All</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputInterest">Interest : </label>
+                                <select id="inputInterest" class="form-control" name="inputInterest" required>
+                                    <option selected>Sports</option>
+                                    <option>Food</option>
+                                    <option>Music/Dance</option>
+                                    <option>Science</option>
+                                    <option>All</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputAgegroup">Age group : </label>
+                                <select id="inputAgegroup" class="form-control" name="inputAgegroup" required>
+                                    <option selected>0-15</option>
+                                    <option>15-25</option>
+                                    <option>25-40</option>
+                                    <option>40+</option>
+                                    <option>All</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                                    <label for="message" class="col-md-2 col-form-label">Message : </label>
+                                    <div class="col-md-10">
+                                        <textarea class="form-control" id="message" name="message" rows="12"></textarea>
+                                    </div>
+                                </div>
+                        <center><button type="submit" class="btn btn-primary">Submit</button></center>
+                    </form>
+                </div>
+            </div>
+    </div>
+    </div>
+    </center>
+
+    {% endif %}
 
 
 
