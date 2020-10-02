@@ -22,7 +22,7 @@
                     <a class="nav-link" href="{% url 'mysite:home' %}" style="padding-left:100px;">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item" >
-                    <a class="nav-link" href="#" style="padding-left:50px;">About me</a>
+                    <a class="nav-link" href="#" style="padding-left:50px;">About us</a>
                 </li>
                 <li class="nav-item active " >
                     <a class="nav-link" href="{% url 'mysite:forms' %}" style="padding-left:50px;">Forms</a>
@@ -48,76 +48,89 @@
     </center><br><br>
 
     {% else %}
-    <div class="container">
-    <form method="POST" action="{% url 'mysite:add_application_form_submission' %}">
-        {% csrf_token %}
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputFirstname">First name</label>
-                <input type="text" class="form-control" id="inputFirstname" placeholder="First name" name="inputFirstname" required>
-             </div>
-            <div class="form-group col-md-6">
-                <label for="inputSecondname">Second name</label>
-                <input type="text" class="form-control" id="inputSecondname" placeholder="Second name" name="inputSecondname" required>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="abc@mail.com" name="inputEmail4" required>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="inputPhoneno">Phone no</label>
-                <input type="text" class="form-control" id="inputPhoneno" placeholder="Phone no" name="inputPhoneno" required>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St ..." name="inputAddress" required>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="inputCity">City</label>
-                <select class="form-control" id="inputCity" name="inputCity" required>
-                    <option selected>Choose...</option>
-                    <option>Bangalore</option>
-                    <option>Chennai</option>
-                    <option>Mumbai</option>
-                    <option>Delhi</option>
-                </select>
-            </div>
-            <div class="form-group col-md-4">
-                <label for="inputType">Interest</label>
-                <select id="inputType" class="form-control" name="inputType" required>
-                    <option selected>Choose...</option>
-                    <option>Sports</option>
-                    <option>Food</option>
-                    <option>Music/Dance</option>
-                    <option>Science</option>
-                </select>
-            </div>
-            <div class="form-group col-md-4">
-                <label for="inputexperience">Age group</label>
-                <select id="inputexperience" class="form-control" name="inputexperience" required>
-                    <option selected>Choose...</option>
-                    <option>0-15</option>
-                    <option>15-25</option>
-                    <option>25-40</option>
-                    <option>40+</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck" name="gridCheck" required>
-                    <label class="form-check-label" for="gridCheck">
-                        I assure that the given information is true.
-                    </label>
+    <center>
+    <div style="width:800px">
+    <div class="card bg-dark text-white">
+        <img class="card-img" src="{% static 'images/background2.webp' %}" alt="Card image" width="100%" height="750px">
+            <div class="card-img-overlay"><br><br>
+                <h2 style="text-shadow: 2px 2px #000;font-weight: 700; color: orange;text-align:center;">EMAIL FORM</h2><br>
+                <p>* Select the criteria based on which the email notifications will be targeted. </p>
+                <p>* Enter the email to which u want the notifications to be sent. </p><br><br>
+                <div class="container">
+                    <form method="POST" action="{% url 'mysite:add_application_form_submission' %}">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputFirstname">First name</label>
+                                <input type="text" class="form-control" id="inputFirstname" placeholder="First name" name="inputFirstname" required>
+                             </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputSecondname">Second name</label>
+                                <input type="text" class="form-control" id="inputSecondname" placeholder="Second name" name="inputSecondname" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Email</label>
+                                <input type="email" class="form-control" id="inputEmail4" placeholder="abc@mail.com" name="inputEmail4" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPhoneno">Phone no</label>
+                                <input type="text" class="form-control" id="inputPhoneno" placeholder="Phone no" name="inputPhoneno" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">Address</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St ..." name="inputAddress" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="inputCity">City</label>
+                                <select class="form-control" id="inputCity" name="inputCity" required>
+                                    <option selected>Choose...</option>
+                                    <option>Bangalore</option>
+                                    <option>Chennai</option>
+                                    <option>Mumbai</option>
+                                    <option>Delhi</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputType">Interest</label>
+                                <select id="inputType" class="form-control" name="inputType" required>
+                                    <option selected>Choose...</option>
+                                    <option>Sports</option>
+                                    <option>Food</option>
+                                    <option>Music/Dance</option>
+                                    <option>Science</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputexperience">Age group</label>
+                                <select id="inputexperience" class="form-control" name="inputexperience" required>
+                                    <option selected>Choose...</option>
+                                    <option>0-15</option>
+                                    <option>15-25</option>
+                                    <option>25-40</option>
+                                    <option>40+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck" name="gridCheck" required>
+                                    <label class="form-check-label" for="gridCheck">
+                                        I assure that the given information is true.
+                                    </label>
+                                </div>
+                             </div>
+                        </div>
+                        <center><button type="submit" class="btn btn-primary">Submit</button></center>
+                    </form>
                 </div>
-             </div>
-        </div>
-        <center><button type="submit" class="btn btn-primary">Submit</button></center>
-      </form>
+            </div>
     </div>
+    </div>
+    </center>
+    <br><br>
     {% endif %}
 
 </body>

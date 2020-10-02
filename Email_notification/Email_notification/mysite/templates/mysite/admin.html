@@ -46,8 +46,6 @@
     </nav>
     <br><br>
 
-    <br>
-
     {% if city %}
 
     <h2 style="text-align:center;">Email notifications has been sent successfully !! </h2>
@@ -84,13 +82,13 @@
     <center>
     <div style="width:800px">
     <div class="card bg-dark text-white">
-        <img class="card-img" src="{% static 'images/background2.webp' %}" alt="Card image" width="100%" height="670px">
-            <div class="card-img-overlay" style="background-color:black;"><br><br>
-                <h2 style="text-shadow: 2px 2px #000;font-weight: 700; color: darkcyan;text-align:center;">EMAIL FORM</h2>
+        <img class="card-img" src="{% static 'images/background2.webp' %}" alt="Card image" width="100%" height="750px">
+            <div class="card-img-overlay"><br><br>
+                <h2 style="text-shadow: 2px 2px #000;font-weight: 700; color: orange;text-align:center;">EMAIL FORM</h2>
                 <p>* Select the criteria based on which the email notifications will be targeted. </p><br><br>
-                <div class="container" style="background-color:black;color:white;">
+                <div class="container" style="color:white;">
                     <br>
-                    <form method="POST" action="{% url 'mysite:send_email' %}">
+                    <form method="POST" action="{% url 'mysite:send_email' %}" style="padding-right:20px;">
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="form-group col-md-4">
@@ -124,20 +122,21 @@
                                 </select>
                             </div>
                         </div>
+                        <br>
                         <div class="form-group row">
-                                    <label for="message" class="col-md-2 col-form-label">Message : </label>
-                                    <div class="col-md-10">
-                                        <textarea class="form-control" id="message" name="message" rows="12"></textarea>
-                                    </div>
-                                </div>
-                        <center><button type="submit" class="btn btn-primary">Submit</button></center>
+                            <label for="message" class="col-md-2 col-form-label">Message : </label>
+                            <div class="col-md-10">
+                                <textarea class="form-control" id="message" name="message" rows="12"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
     </div>
     </div>
     </center>
-
+    <br><br>
     {% endif %}
 
 
