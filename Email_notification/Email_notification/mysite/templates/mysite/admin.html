@@ -16,6 +16,9 @@
         th, td {
           border: 1px solid black;
         }
+        .navbar-dark {
+            background-color: black !important;
+        }
     </style>
 
 
@@ -33,10 +36,10 @@
                     <a class="nav-link active" href="{% url 'mysite:admin' %}" style="padding-left:230px;">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="#" style="padding-left:50px;">User: {{request.user}}<span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="#" style="padding-left:50px;">User: {{request.user}}<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="{% url 'mysite:logout' %}" style="padding-left:50px;">Logout<span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="{% url 'mysite:logout' %}" style="padding-left:50px;">Logout<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <span class="navbar-text" style="padding-right:50px;">
@@ -44,10 +47,10 @@
             </span>
         </div>
     </nav>
-    <br><br>
+
 
     {% if city %}
-
+    <br><br>
     <h2 style="text-align:center;">Email notifications has been sent successfully !! </h2>
     <h6 style="text-align:center;"><i>( This action was done by :<b> {{user}}</b> )</i></h6>
     <br><br><br><br>
@@ -79,6 +82,8 @@
 
     {% else %}
 
+    <div style="background-color:lightgrey;">
+        <br><br>
     <center>
     <div style="width:800px">
     <div class="card bg-dark text-white">
@@ -137,6 +142,7 @@
     </div>
     </center>
     <br><br>
+    </div>
     {% endif %}
 
 

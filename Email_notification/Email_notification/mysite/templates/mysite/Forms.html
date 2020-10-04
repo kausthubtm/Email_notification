@@ -10,7 +10,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Home</title>
 </head>
-<body>
+<style>
+    .navbar-dark {
+           background-color: black !important;
+     }
+</style>
+<body style="background-color:lightgrey;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="{% url 'mysite:home' %}" style="padding-left:250px;"><img src="{% static 'images/logo4.png' %}" height="50px" width="100px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,19 +24,19 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item" >
-                    <a class="nav-link" href="{% url 'mysite:home' %}" style="padding-left:100px;">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="{% url 'mysite:home' %}" style="padding-left:100px;">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item" >
-                    <a class="nav-link" href="#" style="padding-left:50px;">About us</a>
+                    <a class="nav-link active" href="#" style="padding-left:50px;">About us</a>
                 </li>
                 <li class="nav-item active " >
-                    <a class="nav-link" href="{% url 'mysite:forms' %}" style="padding-left:50px;">Forms</a>
+                    <a class="nav-link " href="{% url 'mysite:forms' %}" style="padding-left:50px;">Forms</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" style="padding-left:50px;">User: {{request.user}}<span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="#" style="padding-left:50px;">User: {{request.user}}<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="{% url 'mysite:logout' %}" style="padding-left:50px;">Logout<span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="{% url 'mysite:logout' %}" style="padding-left:50px;">Logout<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <span class="navbar-text">

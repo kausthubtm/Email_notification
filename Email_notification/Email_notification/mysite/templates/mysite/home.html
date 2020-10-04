@@ -31,7 +31,7 @@
   background-position: center center;
   position: relative;
   z-index: -2;
-  background-image: url('{% static 'images/background1.jpg' %}');
+  background-image: url('{% static 'images/background3.jpg' %}');
 }
 
 .overlay {
@@ -51,9 +51,13 @@ width: 100%;
 .setwidth2{
 width: 200px;
 }
+
+.navbar-dark {
+            background-color: black !important;
+        }
 </style>
 
-<body>
+<body style="background-color:lightgrey;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="{% url 'mysite:home' %}" style="padding-left:250px;"><img src="{% static 'images/logo4.png' %}" height="50px" width="100px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,16 +69,16 @@ width: 200px;
                     <a class="nav-link active" href="{% url 'mysite:home' %}" style="padding-left:100px;">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item" >
-                    <a class="nav-link" href="#" style="padding-left:50px;">About us</a>
+                    <a class="nav-link active" href="#" style="padding-left:50px;">About us</a>
                 </li>
                 <li class="nav-item " >
-                    <a class="nav-link" href="{% url 'mysite:forms' %}" style="padding-left:50px;">Forms</a>
+                    <a class="nav-link active" href="{% url 'mysite:forms' %}" style="padding-left:50px;">Forms</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" style="padding-left:50px;">User: {{request.user}}<span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="#" style="padding-left:50px;">User: {{request.user}}<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="{% url 'mysite:logout' %}" style="padding-left:50px;">Logout<span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="{% url 'mysite:logout' %}" style="padding-left:50px;">Logout<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <span class="navbar-text">
@@ -82,21 +86,11 @@ width: 200px;
         </div>
     </nav>
 
-  <div class="jumbotron jumbotron bg-cover" style="height:800px;">
-    <div class="overlay"></div><br><br><br>
-    <div class="container">
-      <p style="font-size:100px;text-shadow: 2px 2px #000;font-weight: 700; color: lightgrey;"><b><i>NOTIFIER</i></b></p>
-      <p class="lead" style="  text-shadow: 2px 2px #000;">" Update yourself with Notifier "<span></span></p>
-      <br><br><br><br><br><br>
-      <marquee style="font-size:20px;">" Notifier keeps you informed and up to date. NO SPAMMING guaranteed !!! "</marquee>
-    </div>
-  </div>
-
 
     <br><br><br><br><br><br>
     <div class="d-flex justify-content-center">
       <div style="width:1500px;">
-        <h1 style="text-align:center;" ><b>About Us</b></h1>
+          <center><img src="{% static 'images/logo4.png' %}" height="200px" width="400px"></center><br>
       <p class="lead">
           <h5 style="text-align:center;">MOTTO: " Awareness - the key in life "</h5>
           <h5 style="text-align:center;">VISION: " To provide necessary and relevant info to people how seek it. "</h5>
@@ -114,7 +108,7 @@ width: 200px;
     </div>
     <br><br><br><br><br><br><br>
 
-    <div class="container" style="border: 2px solid black;border-radius: 5px;background-color:lightblue;">
+    <div class="container" style="border: 2px solid black;border-radius: 5px;background-color:black;color:white;">
         <br>
         <center><p><b>Please fill the form so we can understand u better and so u can receive more relevant notifications !! </b></p></center>
         <div class="d-flex justify-content-center">
