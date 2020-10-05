@@ -17,7 +17,7 @@
           border: 1px solid black;
         }
         .navbar-dark {
-            background-color: black !important;
+            background-color:#1a0033 !important;
         }
     </style>
 
@@ -82,14 +82,32 @@
 
     {% else %}
 
-    <div style="background-color:lightgrey;">
+   <div class="container" style="padding-top:70px;">
+        <center><h1 style="padding-bottom:50px;"><b>Sending email instructions</b></h1></center>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-12 col-sm-7 ml-5">
+                <p>Dear admin, please read this before sending a notification and select the criteria based on which the email notifications will be targeted. </p>
+                <ul>
+                    <li>Email: double check the content of the mail.</li>
+                    <li>Options: Check whether the selected options are related to the mail.</li>
+                    <li>General: Select "all" option if it is a general mail concerning everyone. </li>
+                </ul>
+            </div>
+
+            <div class="col-sm">
+                <img class="ml-3" src="{% static 'images/caution.jpg' %}" height="170px" width="170px">
+            </div>
+        </div>
+    </div>
+
+    <div>
         <br><br>
     <center>
     <div style="width:800px">
     <div class="card bg-dark text-white">
-        <img class="card-img" src="{% static 'images/background2.webp' %}" alt="Card image" width="100%" height="750px">
-            <div class="card-img-overlay"><br><br>
-                <h2 style="text-shadow: 2px 2px #000;font-weight: 700; color: orange;text-align:center;">EMAIL FORM</h2>
+            <div class="container" style="background-color: #1f004d;"><br><br>
+                <h2 style="text-shadow: 2px 2px #000;font-weight: 700;text-align:center;">EMAIL FORM</h2>
                 <p>* Select the criteria based on which the email notifications will be targeted. </p><br><br>
                 <div class="container" style="color:white;">
                     <br>
@@ -136,7 +154,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
-                </div>
+                </div><br><br>
             </div>
     </div>
     </div>

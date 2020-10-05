@@ -8,14 +8,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>Home</title>
+    <title>Forms</title>
 </head>
 <style>
-    .navbar-dark {
-           background-color: black !important;
-     }
+     .navbar-dark {
+       background-color: #1a0033 !important;
+      }
+      .bg-primary {
+        background-color: #1a0033 !important;
+      }
 </style>
-<body style="background-color:lightgrey;">
+<body style="background-color:;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="{% url 'mysite:home' %}" style="padding-left:250px;"><img src="{% static 'images/logo4.png' %}" height="50px" width="100px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +30,7 @@
                     <a class="nav-link active" href="{% url 'mysite:home' %}" style="padding-left:100px;">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item" >
-                    <a class="nav-link active" href="#" style="padding-left:50px;">About us</a>
+                    <a class="nav-link active" href="{% url 'mysite:aboutus' %}" style="padding-left:50px;">About us</a>
                 </li>
                 <li class="nav-item active " >
                     <a class="nav-link " href="{% url 'mysite:forms' %}" style="padding-left:50px;">Forms</a>
@@ -53,14 +56,33 @@
     </center><br><br>
 
     {% else %}
+
+    <div class="container">
+        <center><h1 style="padding-bottom:50px;"><b>Form instructions</b></h1></center>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-12 col-sm-6 ml-5">
+                <p>Notifier sends emails based on information that you provide us in-order to reduce unwanted
+                    notifications and spamming. So please select options that are relevant to you and the options that
+                    interests you. </p>
+                <ul>
+                    <li>Email: the email which receives the notifications.</li>
+                    <li>Options: Notifications will be related to these topics.</li>
+                    <li>Checkbox: Please tick the check before submission.</li>
+                </ul>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm">
+                <img class="ml-3" src="{% static 'images/email.png' %}" height="170px" width="170px">
+            </div>
+        </div>
+    </div>
+
     <center>
-    <div style="width:800px">
+    <div style="width:800px;padding-top:80px;">
     <div class="card bg-dark text-white">
-        <img class="card-img" src="{% static 'images/background2.webp' %}" alt="Card image" width="100%" height="750px">
-            <div class="card-img-overlay"><br><br>
-                <h2 style="text-shadow: 2px 2px #000;font-weight: 700; color: orange;text-align:center;">EMAIL FORM</h2><br>
-                <p>* Select the criteria based on which the email notifications will be targeted. </p>
-                <p>* Enter the email to which u want the notifications to be sent. </p><br><br>
+            <div class="container" style="background-color: #1f004d;"><br><br>
+                <h2 style="text-shadow: 2px 2px #000;font-weight: 700; color: ;text-align:center;">EMAIL FORM</h2><br>
                 <div class="container">
                     <form method="POST" action="{% url 'mysite:add_application_form_submission' %}">
                         {% csrf_token %}
@@ -130,7 +152,7 @@
                         </div>
                         <center><button type="submit" class="btn btn-primary">Submit</button></center>
                     </form>
-                </div>
+                </div><br><br>
             </div>
     </div>
     </div>

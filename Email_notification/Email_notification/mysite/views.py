@@ -5,6 +5,8 @@ from django.contrib import messages
 from .models import Application
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
+from django.conf import settings
+
 
 # registration things
 
@@ -83,6 +85,11 @@ def home(request):
 @login_required(login_url='mysite:login')
 def forms(request):
     return render(request, 'mysite/Forms.html')
+
+
+@login_required(login_url='mysite:login')
+def aboutus(request):
+    return render(request, 'mysite/aboutus.html')
 
 
 @login_required(login_url='mysite:login')

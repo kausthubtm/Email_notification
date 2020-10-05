@@ -8,20 +8,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>Home</title>
+    <title>About Us</title>
 </head>
 
 <style>
-
 .navbar-dark {
        background-color: #1a0033 !important;
       }
 .bg-primary {
         background-color: #1a0033 !important;
       }
-.btn-primary {
-       background-color: #5200cc !important;
-       }
 </style>
 
 <body>
@@ -53,39 +49,62 @@
         </div>
     </nav>
     <br><br><br><br><br><br>
-    <div class="container" style="padding-bottom:150px;">
-        <center><img src="{% static 'images/logo4.png' %}" height="200px" width="400px"></center>
-        <p class="lead">
-          <h5 style="text-align:center;">MOTTO: " Awareness - the key in life "</h5>
-          <h5 style="text-align:center;">VISION: " To provide necessary and relevant info to people how seek it. "</h5>
-        <hr class="my-4">
-        <div class="row" style="padding-top:120px;">
-            <div class="col-12 col-sm-8 ml-5">
-                <p><b>Notifier</b> keeps you informed and up to date by providing you with all the necessary and relevant
-                  information. The Notifier notifies you with events, and stuff happening around you according to your
-                  interests. The notifications will be sent via emails and these notifications will be related to
-                  information you provide when u fill the form. We promise you that there will be no spamming and we try to
-                  make notifications as relevant as possible.
-                </p>
+
+
+    <div class="container">
+        <center><h1 style="padding-bottom:20px;"><b>About Us </b></h1></center>
+        <div class="row">
+            <div class="col-12 col-sm-3">
+                    <img  src="{% static 'images/history2.jpg' %}" height="170px" width="200px">
             </div>
-            <div class="col-sm-1"></div>
             <div class="col-sm">
-                <img class="ml-3" src="{% static 'images/who.jpg' %}" height="170px" width="170px">
+                <p style="padding-top:20px;">Started in 2020, Notifier quickly established itself as a notification icon par excellence in India.
+                    With its unique feature emailing according to the interests of the users we are able to reduce spamming
+                    to a great extent and increasing user satisfaction . Therefore Notifier enjoys patronage
+                    from the A-list clientele in India .
+                </p>
+                <p>Notifier traces its humble beginnings to <em>The notifications </em>, a successful website started by
+                    our CEO, Mr. Kausthub TM, that featured for the first time the world's best website.
+                </p>
             </div>
         </div>
     </div>
 
 
 
-    <div class="container" style="border: 2px solid black;border-radius: 5px;background-color:#1a0033 ;color:white;">
-        <br>
-        <center><p><b>Please fill the form so we can understand u better and so u can receive more relevant notifications !! </b></p></center>
-        <div class="d-flex justify-content-center">
-            <a href="{% url 'mysite:forms' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Fill form !!</a>
-         </div>
-        <br>
-    </div>
-    <br><br><br>
+    <div class="container" style="padding-top:100px;padding-bottom:150px;">
+        <div class="row row-content">
+            <div class="col-12 col-sm-3" style="padding-top:70px;"></div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <h3 class="card-header bg-primary text-white">Facts At a Glance</h3>
+                    <div class="card-body">
+                        <dl class="row">
+                            <dt class="col-6">Started</dt>
+                            <dd class="col-6">6 Oct. 2020</dd>
+                            <dt class="col-6">Major Stake Holder</dt>
+                            <dd class="col-6">HK Fine Foods Inc.</dd>
+                            <dt class="col-6">No of users</dt>
+                            <dd class="col-6">1,250,375</dd>
+                            <dt class="col-6">Employees</dt>
+                            <dd class="col-6">40</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div><
+            <div class="col-12" style="padding-top:40px;">
+                <div class="card card-body bg-light">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">Awareness is the first step to action. They have to know something is going on to know to do something about it.</p>
+                        <footer class="blockquote-footer">Derick Virgil</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div> <br><br><br>
+
+
+
 
 </body>
 </html>
