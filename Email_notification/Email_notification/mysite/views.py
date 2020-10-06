@@ -68,7 +68,7 @@ def send_email(request):
             if application.interest == interest or interest == 'All':
                 if application.age_group == age_group or age_group == 'All':
                     send_mail(
-                        'Notifier: Your first notification, Mr/Mrs ' + application.first_name,
+                        'Notifier: notification, Mr/Mrs ' + application.first_name,
                         message,
                         application.email,
                         ['emailnotifierwebclub@gmail.com', application.email],
@@ -103,10 +103,18 @@ def add_application_form_submission(request):
     city = request.POST["inputCity"]
     interest = request.POST["inputType"]
     age_group = request.POST["inputexperience"]
+    message = 'Thank you for registering and using  Notifier'
 
     # adding application to database
     application = Application(first_name=first_name, second_name=second_name, email=email, phone_no=phone_no,
                               address=address, city=city, interest=interest, age_group=age_group)
     application.save()
+
+    send_mail(
+        'Notifier: Your first notification, Mr/Mrs ' + first_name,
+        message,
+        email,
+        ['emailnotifierwebclub@gmail.com', email],
+    )
 
     return render(request, 'mysite/Forms.html', {'first_name': first_name, 'second_name': second_name})
