@@ -5,7 +5,6 @@ from django.contrib import messages
 from .models import Application
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
-from django.conf import settings
 
 
 # registration things
@@ -48,6 +47,9 @@ def logoutUser(request):
     return redirect('mysite:login')
 
 
+# notifier things
+
+
 @login_required(login_url='mysite:login')
 def admin(request):
     return render(request, 'mysite/admin.html')
@@ -62,6 +64,8 @@ def send_email(request):
     message = request.POST["message"]
 
     all_applications = Application.objects.all()
+
+    # sending email
 
     for application in all_applications:
         if application.city == city or city == 'All':
@@ -109,6 +113,8 @@ def add_application_form_submission(request):
     application = Application(first_name=first_name, second_name=second_name, email=email, phone_no=phone_no,
                               address=address, city=city, interest=interest, age_group=age_group)
     application.save()
+
+    # sending email
 
     send_mail(
         'Notifier: Your first notification, Mr/Mrs ' + first_name,
